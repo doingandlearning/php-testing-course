@@ -136,8 +136,8 @@ Next, it's possible to use array spreading in combination with named arguments:
 ```php
 $input = [
     'age' => 25,
-    'name' => 'Brent',
-    'email' => 'brent@stitcher.io',
+    'name' => 'Kevin',
+    'email' => 'kevin@kevincunningham.co.uk',
 ];
 
 $data = new <hljs type>CustomerData</hljs>(...$input);
@@ -148,8 +148,8 @@ _If_, however, there are missing required entries in the array, or if there's a 
 ```php
 $input = [
     'age' => 25,
-    'name' => 'Brent',
-    'email' => 'brent@stitcher.io',
+    'name' => 'Kevin',
+    'email' => 'kevin@kevincunningham.co.uk',
     <hljs striped>'unknownProperty' => 'This is not allowed'</hljs>,
 ];
 
@@ -160,9 +160,9 @@ It _is_ possible to combine named and ordered arguments in an input array, but o
 
 ```php
 $input = [
-    'Brent',
+    'Kevin',
     'age' => 25,
-    'email' => 'brent@stitcher.io',
+    'email' => 'kevin@kevincunningham.co.uk',
 ];
 
 $data = new <hljs type>CustomerData</hljs>(...$input);
@@ -189,9 +189,9 @@ class CustomerData
 }
 
 $data = <hljs type>CustomerData</hljs>::<hljs prop>new</hljs>(
-    <hljs prop>email</hljs>: 'brent@stitcher.io',
+    <hljs prop>email</hljs>: 'kevin@kevincunningham.co.uk',
     <hljs prop>age</hljs>: 25,
-    <hljs prop>name</hljs>: 'Brent',
+    <hljs prop>name</hljs>: 'Kevin',
 );
 ```
 
@@ -200,8 +200,8 @@ In this case, `$args` in `<hljs type>CustomerData</hljs>::<hljs prop>new</hljs>`
 ```php
 [
     'age' => 25,
-    'email' => 'brent@stitcher.io',
-    'name' => 'Brent',
+    'email' => 'kevin@kevincunningham.co.uk',
+    'name' => 'Kevin',
 ]
 ```
 

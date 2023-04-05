@@ -10,11 +10,12 @@ class DatabaseSeeder extends Seeder
 {
     public function run()
     {
-         User::factory(1)->create([
-             'name' => 'Brent',
-             'email' => 'brent@spatie.be',
-             'is_admin' => true,
-         ]);
+        User::factory(1)->create([
+            'name' => 'Kevin',
+            'email' => 'test@test.com',
+            'is_admin' => true,
+            'password' => bcrypt('letmein'),
+        ]);
 
         $files = scandir(__DIR__ . '/blogPosts');
 
@@ -28,7 +29,7 @@ class DatabaseSeeder extends Seeder
             $date = $matches[0];
 
             BlogPostFactory::new([
-                'author' => 'Brent',
+                'author' => 'Kevin',
                 'title' => ucfirst(str_replace(["{$date}-", '-', '.md'], ['', ' ', ''], $file)),
                 'body' => file_get_contents(__DIR__ . "/blogPosts/{$file}"),
                 'date' => $date,
