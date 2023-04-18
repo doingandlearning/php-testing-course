@@ -25,6 +25,15 @@ class BlogPostFactory extends Factory
         ];
     }
 
+    public function published(): self
+    {
+        return $this->state(function (array $attributes) {
+            return [
+                'status' => BlogPostStatus::PUBLISHED()
+            ];
+        });
+    }
+
     private function markdown(): string
     {
         return <<<MD

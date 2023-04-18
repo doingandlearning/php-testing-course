@@ -8,6 +8,11 @@ This repo contains a demo application that we will use for this course in testin
 - Have a look at the topic list at the end of this page - have a think about things you're excited about and things you think are missing. This list is what I have planned for the 3 days together but we can dive deeper or be more shallow with some of the concepts depending on the interest in the room.
 - As well as the code-along and discussion time, there will be time for you to practice these skills live. To make this more relevant, it would be worth you having a codebase or project you want to apply these principles to. Create a new branch and use it for practice.
 
+TODO: Process control not available on windows
+
+```bash
+composer install --ignore-platform-req=ext-pcntl
+```
 
 ## Install
 - Clone the repo
