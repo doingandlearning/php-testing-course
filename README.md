@@ -32,11 +32,11 @@ php artisan serve
 
 The admin account details have an email of `test@test.com` and a password of `letmein`.
 
-## Coure notes
+## Course notes
 
 We will be using PHPUnit to write and run our tests. During the course, we will be exploring the philosophy of testing approaches and the practical applications of each of them.
 
-We'll largely be adding tests to this existing projects, exploring what is possible and the best practices. 
+We'll largely be adding tests to this existing project, exploring what is possible and the best practices. 
 
 We'll also have opportunities to use these strategies on projects you already have. So, if you can, bring a project you've built before and see how some of the principles we are exploring apply to your real-life work.
 
