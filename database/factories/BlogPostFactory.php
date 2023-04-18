@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\BlogPost;
+use App\Models\BlogPostLike;
 use App\Models\Enums\BlogPostStatus;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
@@ -32,6 +33,11 @@ class BlogPostFactory extends Factory
                 'status' => BlogPostStatus::PUBLISHED()
             ];
         });
+    }
+
+    public function withNLike(int $number_of_likes)
+    {
+        return $this->has(BlogPostLike::factory()->count($number_of_likes));
     }
 
     # Create a draft()

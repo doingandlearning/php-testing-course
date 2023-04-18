@@ -15,9 +15,9 @@ class JsonControllerTest extends TestCase
 
 		$this->get(action([JsonPostController::class, 'index']))
 			->assertSuccessful()
-			->assertJson(function (AssertableJson $json ) use ($postA){
+			->assertJson(function (AssertableJson $json) use ($postA) {
 				$json->has('data', 2)
-					->has('data.0', function (AssertableJson $json)  use ($postA){
+					->has('data.0', function (AssertableJson $json) use ($postA) {
 							$json
 								->has('id')
 								->has('date')
@@ -30,8 +30,19 @@ class JsonControllerTest extends TestCase
 			});
 	}
 
-	public function test_detail_shows_one_blog_post() 
+	public function test_detail_shows_one_blog_post()
 	{
+		[, , $post] = BlogPost::factory()->count(3)->create();
 
+		$this->get(action([JsonPostController::class, 'show'], $post->slug))
+			->assertSuccessful()
+			->assertJson(fn(AssertableJson $json) =>
+				$json->has('id')
+					->has('date')
+					->has('slug')
+					->whereType('date', 'string')
+					->whereType('id', 'integer')
+					->where('id', $post->id)
+					->etc());
 	}
 }
