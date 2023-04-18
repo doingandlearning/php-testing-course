@@ -4,17 +4,14 @@ namespace Tests\Feature\Blog;
 
 use App\Models\BlogPost;
 use App\Models\Enums\BlogPostStatus;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Tests\TestCase;
 
 class BlogIndexTest extends TestCase
 {
-	use RefreshDatabase;
 	public function test_index_shows_a_list_of_blog_posts()
 	{
 		# Arrange
 		$this->withoutExceptionHandling();
-
 		BlogPost::factory()
 			->published()
 			->count(2)
