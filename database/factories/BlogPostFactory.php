@@ -34,6 +34,7 @@ class BlogPostFactory extends Factory
         });
     }
 
+    # Create a draft()
     private function markdown(): string
     {
         return <<<MD

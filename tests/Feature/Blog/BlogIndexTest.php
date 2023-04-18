@@ -1,6 +1,7 @@
 <?php
 
 namespace Tests\Feature\Blog;
+
 use App\Models\BlogPost;
 use App\Models\Enums\BlogPostStatus;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -14,39 +15,28 @@ class BlogIndexTest extends TestCase
 		# Arrange
 		$this->withoutExceptionHandling();
 
-		BlogPost::create([
-			'title' => 'Thoughts on event sourcing',
-			'date' => '2023-04-18',
-			'body' => 'Really interesting blog post',
-			'author' => 'Kevin',
-			'status' => BlogPostStatus::PUBLISHED()
-		]);
+		BlogPost::factory()
+			->published()
+			->count(2)
+			->sequence(
+				['title' => 'Thoughts on event sourcing', 'date' => '2023-04-18'],
+				['title' => 'Fibers', 'date' => '2023-04-17'],
+			)
+			->create();
 
-		BlogPost::create([
-			'title' => 'Fibers',
-			'date' => '2023-04-17',
-			'body' => 'Really interesting blog post',
-			'author' => 'Kevin',
-			'status' => BlogPostStatus::PUBLISHED()
-		]);
+		BlogPost::factory()->create(['title' => 'Draft post', 'status' => BlogPostStatus::DRAFT()]);
 
-		BlogPost::create([
-			'title' => 'Draft post',
-			'date' => '2023-04-17',
-			'body' => 'Really interesting blog post',
-			'author' => 'Kevin'
-		]);
 
 		# Act
 		# Assert
 		$this
-		->get('/')
-		->assertSee('Thoughts on event sourcing')
-		->assertSeeInOrder([
+			->get('/')
+			->assertSee('Thoughts on event sourcing')
+			->assertSeeInOrder([
 				'Thoughts on event sourcing',
 				'Fibers',
-		])->assertSuccessful()
-		->assertDontSee('Draft post');
-		
+			])->assertSuccessful()
+			->assertDontSee('Draft post');
+
 	}
 }
