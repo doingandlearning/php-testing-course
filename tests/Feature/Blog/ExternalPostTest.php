@@ -33,14 +33,11 @@ class ExternalPostTest extends TestCase
 			['title' => 'My Awesome Title', 'url' => 'https://google.com']
 		);
 
-		
 		// $this->assertTrue($passenger->refresh()->has('voucher'));
 
 		Mail::assertSent(function (ExternalPostSuggestedMail $mail) use ($user) {
 			return $mail->to[0]['address'] === $user->email;
 		});
-
-		
 
 		// Bus::fake(['']);
 		// Event::fake();

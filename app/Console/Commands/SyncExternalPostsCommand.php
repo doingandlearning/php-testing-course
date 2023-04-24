@@ -43,7 +43,7 @@ class SyncExternalPostsCommand extends Command
     private function sync(array $feeds, SyncExternalPost $sync)
     {
         foreach ($feeds as $url) {
-            $this->comment("\t- $url");
+            $this->info("\t- $url");
 
             $sync($url);
         }
