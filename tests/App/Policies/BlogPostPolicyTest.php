@@ -44,6 +44,7 @@ class BlogPostPolicyTest extends TestCase
 	public function test_admin_user_can_access_route(Closure $sendRequest) 
 	{
 		$this->login(User::factory()->admin()->create());
+		
 		/** @var \Illuminate\Testing\TestResponse $response */
 		$response = $sendRequest->call($this, $this->post);
 		$this->assertTrue(in_array($response->status(), [ 200, 302]));

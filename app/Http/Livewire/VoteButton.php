@@ -21,7 +21,7 @@ class VoteButton extends Component
 
         if (! $this->likerUuid) {
             $this->likerUuid = Cookie::get('liker_id') ?? Uuid::uuid4();
-
+          
             Cookie::queue('liker_id', $this->likerUuid, 60 * 365 * 10);
         }
     }
