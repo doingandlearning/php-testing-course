@@ -1,5 +1,5 @@
 ## Blog demo application
-
+I'm writing here!
 This repo contains a demo application that we will use for this course in testing.
 
 ## Setting yourself up for success
