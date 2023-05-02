@@ -22,7 +22,7 @@ class VoteButtonTest extends DuskTestCase
        # These tests run slowly (and not all when run directly with PHPUnit),
        # so you can update your test command to php artisan test --exclude-group=dusk
        # and add the group annotation to each dusk test.
-               
+
         $post = BlogPost::factory()->create(['likes' => 10]);
         $this->browse(function (Browser $browser) use ($post) {
             # Navigate to the post
