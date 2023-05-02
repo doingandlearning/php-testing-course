@@ -1,5 +1,4 @@
 ## Blog demo application
-I'm writing here!
 This repo contains a demo application that we will use for this course in testing.
 
 ## Setting yourself up for success
@@ -73,8 +72,8 @@ Topics we'll explore:
 - Parallel Testing Optimization
 - Domain Code Testing Principles
 - Snapshot Testing Insights
-- Test-Driven Development (TDD) Practices
 - Integrating Tests with Continuous Integration (CI)
 - Regression Testing Methods
 - Exception Testing Approaches
+- Test-Driven Development (TDD) Practices
 - Test-Driven Refactoring Strategies

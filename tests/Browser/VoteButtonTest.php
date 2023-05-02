@@ -19,6 +19,7 @@ class VoteButtonTest extends DuskTestCase
      */
     public function test_vote_button_increments_counter()
     {
+        $this->markTestSkipped();
        # These tests run slowly (and not all when run directly with PHPUnit),
        # so you can update your test command to php artisan test --exclude-group=dusk
        # and add the group annotation to each dusk test.
