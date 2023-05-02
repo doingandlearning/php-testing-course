@@ -1,18 +1,14 @@
 <?php
 use Tests\TestCase;
-
+use Spatie\Snapshots\MatchesSnapshots;
 class RowTest extends TestCase
 {
+	use MatchesSnapshots;
 
 	public function test_header_row_is_rendered()
 	{
-		$this->blade('<x-row header>This should be rendered in the middle</x-row>')
-			->assertSee('sticky')
-			->assertSee('This should be rendered in the middle')
-			->assertSee('bg-gray-200');
+		$this->assertMatchesSnapshot((string) $this->blade('<x-row header>This should be rendered in the middle</x-row>'));
 
-		$this->blade('<x-row />')
-			->assertDontSee('sticky')
-			->assertSee('bg-white');
+		$this->assertMatchesSnapshot((string) $this->blade('<x-row />'));
 	}
 }

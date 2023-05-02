@@ -1,0 +1,9 @@
+<div class="
+    grid  gap-6
+
+            p-4
+        bg-white
+        border-b-2 border-gray-100
+    ">
+    
+</div>
