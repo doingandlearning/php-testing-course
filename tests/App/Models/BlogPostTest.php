@@ -1,4 +1,5 @@
 <?php
+use App\Exceptions\AlreadyPublished;
 use App\Models\BlogPost;
 use App\Models\BlogPostLike;
 use App\Models\Enums\BlogPostStatus;
@@ -48,5 +49,18 @@ class BlogPostTest extends TestCase
 					->create();
 
 			$this->assertTrue($postLike->blogPost->isPublished());
+	}
+
+	/**
+	 * To be continued!
+	 */
+	public function test_that_a_post_cant_be_published_twice_two()
+	{
+			$post = BlogPost::factory()->published()->create();
+
+			$this->expectException(AlreadyPublished::class);
+			
+			$post->publish();
+			
 	}
 }

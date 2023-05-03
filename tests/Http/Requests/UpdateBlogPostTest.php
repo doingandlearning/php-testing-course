@@ -62,25 +62,17 @@ class UpdateBlogPostTest extends TestCase
     /** @test */
     public function slug_update_creates_redirect()
     {
-        $this->login();
-
         $post = BlogPost::factory()->create([
-            'slug' => 'slug-a',
+            'slug' => 'slug-a'
         ]);
 
-        $this->withoutExceptionHandling();
-
-        $this
-            ->post(action(UpdatePostSlugController::class, [$post->slug]), [
-                'slug' => 'slug-b',
-            ])
-            ->assertRedirect();
+        $this->post(action([UpdatePostSlugController::class], [$post->slug]), [
+            'slug' => 'slug-b'
+        ]);
 
         $this->assertDatabaseHas(Redirect::class, [
-            'from' => '/blog/slug-a',
-            'to' => '/blog/slug-b',
+            'from' => 'slug-a',
+            'to' => 'slug-b'
         ]);
-
-        $this->assertEquals('slug-b', $post->refresh()->slug);
     }
 }

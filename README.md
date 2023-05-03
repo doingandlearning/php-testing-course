@@ -75,5 +75,5 @@ Topics we'll explore:
 - Integrating Tests with Continuous Integration (CI)
 - Regression Testing Methods
 - Exception Testing Approaches
-- Test-Driven Development (TDD) Practices
-- Test-Driven Refactoring Strategies
+- Test-Driven Development (TDD) Practices // watch mode
+- Test-Driven Refactoring Strategies 

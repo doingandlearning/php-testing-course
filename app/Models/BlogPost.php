@@ -62,6 +62,7 @@ class BlogPost extends Model implements Feedable
             'status' => BlogPostStatus::PUBLISHED(),
         ]);
 
+        
         return $this;
     }
 

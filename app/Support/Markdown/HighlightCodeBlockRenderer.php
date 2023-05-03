@@ -20,7 +20,11 @@ class HighlightCodeBlockRenderer extends FencedCodeRenderer
 
         $content = $element->getContents();
 
-        $content = preg_replace_callback('/\&lt;[\w\s\<\"\=\-\>\/]+hljs[\w\s\<\"\=\-\>\/]+/', function ($match) {
+        $content = preg_replace_callback('/
+        \&lt;                   # Starts with a `<` it is opening the tag
+        hljs                    # tag name should be hljs
+        [\w\s\<\"\=\-\>\/]+     # allows for other attributes inside of the regex
+        /x', function ($match) { 
             $match = str_replace('<span class="hljs-title">', '', $match[0] ?? '');
 
             $match = str_replace('</span>', '', $match);

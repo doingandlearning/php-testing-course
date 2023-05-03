@@ -39,7 +39,8 @@
         "phpunit/phpunit": "^9.3.3",
         "spatie/laravel-ray": "^1.19",
         "spatie/laravel-stubs": "^2.1",
-        "spatie/phpunit-snapshot-assertions": "^4.2"
+        "spatie/phpunit-snapshot-assertions": "^4.2",
+        "spatie/phpunit-watcher": "^1.23"
     },
     "autoload": {
         "psr-4": {
